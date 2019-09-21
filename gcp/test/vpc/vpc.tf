@@ -1,5 +1,5 @@
 module "vpc-gke" {
-    source = "../modules/vpc"
+    source = "../../modules/vpc"
 
     name = "vpc-gke1"
 }
