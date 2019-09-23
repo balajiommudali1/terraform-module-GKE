@@ -1,5 +1,7 @@
 resource "google_container_cluster" "gke" {
   name     = "${var.name}"
+  description = "${var.description}"
+  
   location = "${var.location}"
 
   # We can't create a cluster with no node pool defined, but we want to only use
