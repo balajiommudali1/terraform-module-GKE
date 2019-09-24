@@ -15,6 +15,16 @@ variable "location" {
     default = "europe-west4"
 }
 
+variable "network" {
+    description = "the VPC network to host the cluster in"
+    type = "string"
+}
+
+variable "subnetwork" {
+    description = "subnetwork to host the cluster in"
+    type = "string"
+}
+
 variable "node_count" {
     type = "string"
     default = 1
