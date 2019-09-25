@@ -25,6 +25,12 @@ variable "subnetwork" {
     type = "string"
 }
 
+variable "cluster_autoscaling_enabled" {
+    description = "enable or disable autoscaling cluster"
+    type = "string"
+    default = "false"
+}
+
 variable "node_count" {
     type = "string"
     default = 1

@@ -1,4 +1,6 @@
 resource "google_container_cluster" "gke" {
+  provider = google-beta
+
   name     = var.name
   description = var.description
   
@@ -11,6 +13,22 @@ resource "google_container_cluster" "gke" {
   # node pool and immediately delete it.
   remove_default_node_pool = true
   initial_node_count = 1
+
+  # We need google-beta provider to use cluster_autoscaling.
+  cluster_autoscaling {
+    enabled = var.cluster_autoscaling_enabled
+    resource_limits {
+      resource_type = "cpu"
+      minimum = 1
+      maximum = 2
+    }
+  }
+//     resource_limits = [
+//       resource_type = "cpu"
+//       minimum = 1
+//       maximum = 2
+//     ],
+//   ]
 }
 
 resource "google_container_node_pool" "primary_preemptible_nodes" {
@@ -18,6 +36,11 @@ resource "google_container_node_pool" "primary_preemptible_nodes" {
   location   = google_container_cluster.gke.location
   cluster    = google_container_cluster.gke.name
   node_count = var.node_count
+
+  autoscaling {
+    min_node_count = "1"
+    max_node_count = "2"
+  }
 
   node_config {
     preemptible  = true
