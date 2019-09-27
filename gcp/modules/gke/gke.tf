@@ -1,6 +1,7 @@
 resource "google_container_cluster" "gke" {
   provider = google-beta
 
+  project = var.project
   name     = var.name
   description = var.description
   

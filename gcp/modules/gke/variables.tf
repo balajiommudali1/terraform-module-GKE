@@ -1,3 +1,8 @@
+variable "project" {
+    description = "The project name in google cloud"
+    type = "string"
+}
+
 variable "name" {
     description = "the name of the cluster"
     type = "string"
