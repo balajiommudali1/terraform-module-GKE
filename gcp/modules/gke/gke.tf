@@ -23,16 +23,17 @@ resource "google_container_cluster" "gke" {
       minimum = 1
       maximum = 2
     }
+    resource_limits {
+      resource_type = "memory"
+      minimum = 1024
+      maximum = 2048
+    }
   }
-//     resource_limits = [
-//       resource_type = "cpu"
-//       minimum = 1
-//       maximum = 2
-//     ],
-//   ]
 }
 
 resource "google_container_node_pool" "primary_preemptible_nodes" {
+
+  project = google_container_cluster.gke.project
   name       = "default-pool"
   location   = google_container_cluster.gke.location
   cluster    = google_container_cluster.gke.name
