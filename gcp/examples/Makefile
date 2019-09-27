@@ -16,3 +16,5 @@ network:
 	@cd vpc && terraform init && terraform apply
 k8s:
 	@cd gke && terraform init && terraform apply
+clean:
+	@cd gke && terraform destroy -auto-approve && cd ../vpc && terraform destroy --auto-approve
