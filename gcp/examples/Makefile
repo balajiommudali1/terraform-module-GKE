@@ -9,6 +9,7 @@ usage:
 	@echo 'All commands:'
 	@echo
 	@echo '    all                Deploy k8s and network'
+	@echo '    vpc                Deploy only vpc' 
 	@echo '    k8s                Create only k8s infrastructure'
 
 all: network k8s
