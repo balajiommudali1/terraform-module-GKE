@@ -1,3 +1,7 @@
+terraform {
+  required_version = ">= 0.12"
+}
+
 resource "google_container_cluster" "gke" {
   provider = google-beta
 
