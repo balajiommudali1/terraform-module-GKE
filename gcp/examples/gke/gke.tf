@@ -2,7 +2,7 @@ module "gke" {
     source = "../../modules/gke"
 
     name = "gke-test"
-    network = data.terraform_remote_state.vpc.outputs.vpc_name
+    network = google_compute_network.vpc_network.name
     subnetwork = google_compute_subnetwork.subnetwork.name
     cluster_autoscaling_enabled = "true"
     cpu_min = 1
