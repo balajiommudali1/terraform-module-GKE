@@ -1,6 +1,3 @@
-# resourceGroup = "SUEZSpain-RG-PROAKS"
-# aks_name = "aks-synectic"
-
 usage:
 	@echo 'Usage: make <command>'
 	@echo
