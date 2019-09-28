@@ -19,13 +19,13 @@ resource "google_container_cluster" "gke" {
     enabled = var.cluster_autoscaling_enabled
     resource_limits {
       resource_type = "cpu"
-      minimum = 1
-      maximum = 2
+      minimum = var.cpu_min
+      maximum = var.cpu_max
     }
     resource_limits {
       resource_type = "memory"
-      minimum = 1024
-      maximum = 2048
+      minimum = var.mem_min
+      maximum = var.mem_max
     }
   }
 }

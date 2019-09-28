@@ -31,6 +31,30 @@ variable "cluster_autoscaling_enabled" {
     default = "false"
 }
 
+variable "cpu_min" {
+    description = "Minimum amount of the cpu. This field is required if the cluster_autoscaling_enabled is true"
+    type = "string"
+    default = "false"
+}
+
+variable "cpu_max" {
+    description = "Maximum amount of the cpu. This field is required if the cluster_autoscaling_enabled is true"
+    type = "string"
+    default = "false"
+}
+
+variable "mem_min" {
+    description = "Minimum amount of the memory. This field is required if the cluster_autoscaling_enabled is true"
+    type = "string"
+    default = "false"
+}
+
+variable "mem_max" {
+    description = "Maximum amount of the memory. This field is required if the cluster_autoscaling_enabled is true"
+    type = "string"
+    default = "false"
+}
+
 variable "node_count" {
     type = "string"
     default = 1
