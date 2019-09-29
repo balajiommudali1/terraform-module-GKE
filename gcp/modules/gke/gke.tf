@@ -19,17 +19,29 @@ resource "google_container_cluster" "gke" {
   initial_node_count = 1
 
   # We need google-beta provider to use cluster_autoscaling.
+  # We use dynamic block to avoid an error when
+  # cluster_autoscaling is disabled.
   cluster_autoscaling {
     enabled = var.cluster_autoscaling_enabled
-    resource_limits {
-      resource_type = "cpu"
-      minimum = var.cpu_min
-      maximum = var.cpu_max
+
+    dynamic "resource_limits" {
+      for_each = var.cluster_autoscaling_enabled ? [1] : []
+      
+      content {
+        resource_type = "cpu"
+        maximum = var.cpu_max
+        minimum = var.cpu_min
+      }
     }
-    resource_limits {
-      resource_type = "memory"
-      minimum = var.mem_min
-      maximum = var.mem_max
+
+    dynamic "resource_limits" {
+      for_each = var.cluster_autoscaling_enabled ? [1] : []
+      
+      content {
+        resource_type = "memory"
+        maximum = var.mem_max
+        minimum = var.mem_min
+      }
     }
   }
 }
