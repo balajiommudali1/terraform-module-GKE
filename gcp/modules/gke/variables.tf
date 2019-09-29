@@ -60,6 +60,16 @@ variable "node_count" {
     default = 1
 }
 
+variable "min_node_count" {
+    type = "string"
+    description = "Minimum number of nodes in the NodePool. Must be >=0 and <= max_node_count"
+}
+
+variable "max_node_count" {
+    type = "string"
+    description = "Maximum number of nodes in the NodePool. Must be >= min_node_count"
+}
+
 variable "machine_type" {
     type = "string"
     default = "n1-standard-1"
