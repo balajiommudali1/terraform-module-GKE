@@ -34,25 +34,25 @@ variable "cluster_autoscaling_enabled" {
 variable "cpu_min" {
     description = "Minimum amount of the cpu. This field is required if the cluster_autoscaling_enabled is true"
     type = "string"
-    default = "false"
+    default = null
 }
 
 variable "cpu_max" {
     description = "Maximum amount of the cpu. This field is required if the cluster_autoscaling_enabled is true"
     type = "string"
-    default = "false"
+    default = null
 }
 
 variable "mem_min" {
     description = "Minimum amount of the memory. This field is required if the cluster_autoscaling_enabled is true"
     type = "string"
-    default = "false"
+    default = null
 }
 
 variable "mem_max" {
     description = "Maximum amount of the memory. This field is required if the cluster_autoscaling_enabled is true"
     type = "string"
-    default = "false"
+    default = null
 }
 
 variable "node_count" {
@@ -63,11 +63,13 @@ variable "node_count" {
 variable "min_node_count" {
     type = "string"
     description = "Minimum number of nodes in the NodePool. Must be >=0 and <= max_node_count"
+    default = null
 }
 
 variable "max_node_count" {
     type = "string"
     description = "Maximum number of nodes in the NodePool. Must be >= min_node_count"
+    default = null
 }
 
 variable "machine_type" {
