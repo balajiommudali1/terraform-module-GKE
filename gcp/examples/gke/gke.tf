@@ -10,6 +10,8 @@ module "gke" {
     cpu_max = 2
     mem_min = 1024
     mem_max = 2048
+    network_policy_enabled = true
+    network_policy_provider = "CALICO"
 
     # google_container_node_pool
     node_count = "1"

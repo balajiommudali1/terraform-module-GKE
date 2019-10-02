@@ -55,6 +55,18 @@ variable "mem_max" {
     default = null
 }
 
+variable "network_policy_enabled" {
+    description = "Whether network policy is enabled on the cluster. Defaults to false"
+    type = "string"
+    default = "false"
+}
+
+variable "network_policy_provider" {
+    description = "The selected network policy provider. Defaults to PROVIDER_UNSPECIFIED"
+    type = "string"
+    default = "PROVIDER_UNSPECIFIED"
+}
+
 variable "node_count" {
     type = "string"
     default = 1

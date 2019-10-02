@@ -44,6 +44,11 @@ resource "google_container_cluster" "gke" {
       }
     }
   }
+
+  network_policy {
+    enabled = var.network_policy_enabled
+    provider = var.network_policy_provider
+  }
 }
 
 resource "google_container_node_pool" "primary_preemptible_nodes" {
