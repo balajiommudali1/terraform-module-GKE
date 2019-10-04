@@ -6,7 +6,7 @@ This repository contain GKE, EKS and AKS modules to deploy production kubernetes
 
 ## Compatibility
 
-This project is meant to use at least Terraform  0.12 version if you haven't this version you need to [upgrade](https://www.terraform.io/upgrade-guides/0-12.html) the Terraform version.
+This project is meant to use at least [Terraform  0.12 version](https://www.terraform.io/downloads.html) if you haven't this version you need to [upgrade](https://www.terraform.io/upgrade-guides/0-12.html) the Terraform version.
 
 ## Usage
 
