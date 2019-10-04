@@ -9,6 +9,7 @@ resource "google_container_cluster" "gke" {
   description = var.description
 
   location   = var.location
+  node_locations = var.node_locations
   network    = var.network
   subnetwork = var.subnetwork
 
