@@ -12,7 +12,7 @@ variable "description" {
 variable "location" {
     description = "the location (region or zone) to the host the cluster in"
     type = "string"
-    default = "europe-west4"
+    default = ""
 }
 
 variable "network" {
