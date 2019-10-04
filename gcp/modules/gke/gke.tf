@@ -5,18 +5,18 @@ terraform {
 resource "google_container_cluster" "gke" {
   provider = google-beta
 
-  name     = var.name
+  name        = var.name
   description = var.description
-  
-  location = var.location
-  network = var.network
+
+  location   = var.location
+  network    = var.network
   subnetwork = var.subnetwork
-  
+
   # We can't create a cluster with no node pool defined, but we want to only use
   # separately managed node pools. So we create the smallest possible default
   # node pool and immediately delete it.
   remove_default_node_pool = true
-  initial_node_count = 1
+  initial_node_count       = 1
 
   # We need google-beta provider to use cluster_autoscaling.
   # We use dynamic block to avoid an error when
@@ -26,34 +26,34 @@ resource "google_container_cluster" "gke" {
 
     dynamic "resource_limits" {
       for_each = var.cluster_autoscaling_enabled ? [1] : []
-      
+
       content {
         resource_type = "cpu"
-        maximum = var.cpu_max
-        minimum = var.cpu_min
+        maximum       = var.cpu_max
+        minimum       = var.cpu_min
       }
     }
 
     dynamic "resource_limits" {
       for_each = var.cluster_autoscaling_enabled ? [1] : []
-      
+
       content {
         resource_type = "memory"
-        maximum = var.mem_max
-        minimum = var.mem_min
+        maximum       = var.mem_max
+        minimum       = var.mem_min
       }
     }
   }
 
   network_policy {
-    enabled = var.network_policy_enabled
+    enabled  = var.network_policy_enabled
     provider = var.network_policy_provider
   }
 }
 
 resource "google_container_node_pool" "primary_preemptible_nodes" {
 
-  project = google_container_cluster.gke.project
+  project    = google_container_cluster.gke.project
   name       = "default-pool"
   location   = google_container_cluster.gke.location
   cluster    = google_container_cluster.gke.name
