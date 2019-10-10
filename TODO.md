@@ -1,1 +1,2 @@
-[] Review description argument in variables.tf files.
+- [] Review description argument in variables.tf files.
+- [] Pending add istio_config and cloudrun_config in addons_config.
