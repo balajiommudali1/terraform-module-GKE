@@ -21,6 +21,30 @@ variable "node_locations" {
     default     = []
 }
 
+variable "horizontal_pod_autoscaling" {
+  description = "The status of the Horizontal Pod Autoscaling addon, which increases or decreases the number of replica pods a replication controller has based on the resource usage of the existing pods. It ensures that a Heapster pod is running in the cluster, which is also used by the Cloud Monitoring service"
+  type        = bool
+  default     = false
+}
+
+variable "http_load_balancing" {
+  description = "The status of the HTTP (L7) load balancing controller addon, which makes it easy to set up HTTP load balancers for services in a cluster"
+  type        = bool
+  default     = false
+}
+
+variable "kubernetes_dashboard" {
+  description = "The status of the Kubernetes Dashboard add-on, which controls whether the Kubernetes Dashboard is enabled for this cluster"
+  type        = bool
+  default     = true
+}
+
+variable "network_policy_config" {
+  description = "Whether we should enable the network policy addon for the master. This must be enabled in order to enable network policy for the nodes. To enable this, you must also define a network_policy block, otherwise nothing will happen. It can only be disabled if the nodes already do not have network policies enabled"
+  type        = bool
+  default     = false
+}
+
 variable "network" {
   description = "the VPC network to host the cluster in"
   type        = "string"

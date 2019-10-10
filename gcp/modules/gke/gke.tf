@@ -10,6 +10,23 @@ resource "google_container_cluster" "gke" {
 
   location   = var.location
   node_locations = var.node_locations
+
+  addons_config {
+    horizontal_pod_autoscaling {
+      disabled = var.horizontal_pod_scaling
+    }
+    http_load_balancing {
+      disabled = var.http_load_balancing
+    }
+    kubernetes_dashboard {
+      disabled = var.kubernetes_dashboard
+    }
+    network_policy_config{
+      disabled = var.network_policy_config
+    }
+    // pending add istio_config and cloudrun_config
+  }
+
   network    = var.network
   subnetwork = var.subnetwork
 
