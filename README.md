@@ -12,7 +12,7 @@ This project is meant to use at least [Terraform  0.12 version](https://www.terr
 
 ## Usage
 
-There are a multiple examples in the example folder inside each provider [GKE](https://github.com/namku/GKE-IaC/tree/master/gcp/examples):
+There are a multiple examples in the [example](https://github.com/namku/GKE-IaC/tree/master/gcp/examples) folder:
 
 ```
 module "gke" {
