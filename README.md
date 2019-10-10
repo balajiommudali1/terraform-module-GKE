@@ -1,12 +1,10 @@
-# kubernetes-IaC
+# GKE-IaC
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 ---
 
-This repository contain GKE, EKS and AKS modules to deploy production kubernetes cluster. In variables.tf you can see the description of each argument to deploy kubernetes, for more information you can go to the Terraform website of each provider [GKE](https://www.terraform.io/docs/providers/google/r/container_cluster.html), [EKS](https://www.terraform.io/docs/providers/aws/r/eks_cluster.html) or [AKS](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html).
-
-> This project is in constant evolution by now we're focus in GKE kubernetes cluster.
+This repository contain GKE module to deploy production kubernetes cluster. In variables.tf you can see the description of each argument to deploy kubernetes, for more information you can go to the Terraform website of each provider [GKE](https://www.terraform.io/docs/providers/google/r/container_cluster.html)
 
 ## Compatibility
 
@@ -14,7 +12,7 @@ This project is meant to use at least [Terraform  0.12 version](https://www.terr
 
 ## Usage
 
-There are a multiple examples in the example folder inside each provider [GKE](https://github.com/namku/kubernetes-IaC/tree/master/gcp/examples), EKS, AKS:
+There are a multiple examples in the example folder inside each provider [GKE](https://github.com/namku/GKE-IaC/tree/master/gcp/examples):
 
 ```
 module "gke" {
