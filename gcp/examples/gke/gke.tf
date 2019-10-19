@@ -4,7 +4,7 @@ module "gke" {
     # google_container_cluster
     name = "gke-test"
     location = "europe-west4"
-    node_locations = ["europe-west4-a","europe-west4-b"]
+    node_locations = ["europe-west4-a","europe-west4-b","europe-west4-c"]
     network = google_compute_network.vpc_network.name
     subnetwork = google_compute_subnetwork.subnetwork.name
     // cluster_autoscaling_enabled = true
